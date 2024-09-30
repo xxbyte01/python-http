@@ -1,0 +1,34 @@
+<!--
+   Author: Suchin T
+   Date:   2024-09-29 (YYYY-MM-DD)
+   Version: 0.1
+   Function: Form HTML page
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+
+        </header>
+        <h1>Form Page</h1>
+        <h3 id="id_text" >{{id}}</h3>
+        <h3 id="name_text">{{name}}</h3>
+        <h3>
+        <form id="form1" action="/form/post" method="POST">
+            <label>name</label>
+            <input type="text" value={{name}} name="name" id="input1">
+            <br>
+            <label>last name</label>
+            <input type="text" value={{last_name}} name="last_name" id="input2">
+            <br>
+            <label>age</label>
+            <input type="text" value="" name="age">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        </h3>
+        <script>
+            
+        </script>
+    </body>
+</html>

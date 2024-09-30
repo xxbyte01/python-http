@@ -1,0 +1,36 @@
+<!--
+   Author: Suchin T
+   Date:   2024-09-26 (YYYY-MM-DD)
+   Version: 0.1
+   Function: Index HTML page
+-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+            <h1>
+               Index Page
+            </h1>
+        </header>
+        <h2>Server Data</h2>
+        <h3>Server Address = {{server_address}}</h3>
+        <h3>Server Port = {{server_port}}</h3>
+        <h3>Version = {{version}}</h3>
+        <p>++++++++++++++++++++++++++++++++++++++</p>
+        <h2>Client Data</h2>
+        <h3>Client Address = {{client_address}}</h3>
+        <h3>Client Address = {{client_port}}</h3>
+        <h3>
+        <form action="/form">
+            <label>name</label>
+            <input type="text" name="name">
+            <br>
+            <label>last name</label>
+            <input type="text" name="last_name">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        </h3>
+        <h3><a href="/t">http://localhost:8000/t</a></h3>
+    </body>
+</html>
