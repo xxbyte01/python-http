@@ -1,8 +1,9 @@
 # - **********************************************************
 # - Author: Suchin T
-# - Date: 2024-09-26 (YYYY-MM-DD)
-# - Version: 0.1
-# - Function: Server CMD Application 
+# - Date: 2024-10-01 (YYYY-MM-DD)
+# - Version: 0.2
+# - Function: Server CMD Application
+# - Description: Fixed IF condition without ELSE 
 # - **********************************************************
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -12,7 +13,7 @@ from urllib.parse import urlparse
 import json
 import mylib
 
-Version = "0.1"
+Version = "0.2"
 Server_address = "127.0.0.1"
 Server_port = 8000
 
@@ -86,12 +87,17 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 if temp != 'none':
                   obj = json.loads(temp)
                   print(f'obj = {obj}')
-                file_html = open("form.html").read()
-                self.send_response(200)
-                self.send_header('Content-type','text/html')
-                self.end_headers()
-                template = Template(file_html)
-                self.wfile.write(bytes(template.render(obj),'utf-8'))
+                  file_html = open("form.html").read()
+                  self.send_response(200)
+                  self.send_header('Content-type','text/html')
+                  self.end_headers()
+                  template = Template(file_html)
+                  self.wfile.write(bytes(template.render(obj),'utf-8'))
+                else:
+                  self.send_response(404)
+                  self.send_header('Content-type','text/html')
+                  self.end_headers()
+                  self.wfile.write(bytes("form data format = " + temp,'utf-8'))
              except Exception as err:
                print(f'*** Error -> {err}')
                self.send_response(404)
@@ -138,6 +144,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                  self.send_header('Content-type','text/html')
                  self.end_headers()
                  self.wfile.write(bytes(tempp.render(obj),"utf-8"))
+              else:
+                 self.send_response(404)
+                 self.send_header('Content-type','text/html')
+                 self.end_headers()
+                 self.wfile.write(bytes("form data format = " + json_format,'utf-8'))
             except Exception as err:
               print(f'Error = {err}')
               self.send_response(404)

@@ -1,11 +1,12 @@
 # - **********************************************************
 # - Author: Suchin T
-# - Date: 2024-09-30 (YYYY-MM-DD)
-# - Version: 0.1
+# - Date: 2024-10-01 (YYYY-MM-DD)
+# - Version: 0.2
 # - Function: my library function
+# - Description: Added Force_none flag for testing.
 # - **********************************************************
 
-def Change_form_data_2_json_format(input):
+def Change_form_data_2_json_format(input, Force_none = False):
     check_str = isinstance(input,str)
     check_bytes = isinstance(input,bytes)
     temp = ""
@@ -20,4 +21,8 @@ def Change_form_data_2_json_format(input):
        temp = '{"'+ temp + '"}'
     else:
        temp = 'none' # return 'none' in case data, that is not html data format
+    
+    if Force_none == True: # Force the function to give 'none'
+       temp = 'none'
+
     return temp
